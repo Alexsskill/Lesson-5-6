@@ -34,6 +34,8 @@ public class Main {
         double TheReminderOfTheDivision2 = a1 % b1;
 
 
+        System.out.println("Сложение равно " + sum); // Новая строка !
+
         System.out.println("Сложение равно " + sum);
         System.out.println("Вычитание равно " + difference);
         System.out.println("Умножение равно " + multiplication);

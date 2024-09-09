@@ -46,7 +46,6 @@ public class Main {
         int TheReminderOfTheDivision = a % b;
         double TheReminderOfTheDivision2 = a1 % b1;
 
-
         System.out.println("Сложение равно " + sum);
         System.out.println("Сложение равно " + sum);
         System.out.println("Сложение равно " + sum);

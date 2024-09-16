@@ -77,9 +77,34 @@ public class Main {
 
         //ЗАДАНИЕ ПО УРОКУ 7-8. ПУНКТ 3
 
-        long myLong = 1_000_000_000_000L;
+        /*long myLong = 1_000_000_000_000L;
         int myInt = (int) myLong;
         System.out.println(myLong);
-        System.out.println(myInt);
+        System.out.println(myInt);*/
+
+        //ЗАДАНИЕ ПО УРОКУ 9-10. Написание алгоритма похода на пляж.
+
+        System.out.println("Доброе утро, посмотрите температуру воздуха на улице и светит ли солнце");
+        int x = 24; // Минимально пригодная температура воздуха для похода на пляж
+        System.out.println("Укажите температуру воздуха: ");
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt(); // Ожидание ввода температуры на улице
+        if (t > x) {
+            System.out.println("На улице тепло, можно идти на пляж, температура воздуха подходит для похода на пляж, а теперь давайте соберём нужные нам вещи");
+            System.out.println("Проверьте все ли вещи вы собрали в сумку, введите Да или Нет");
+            Scanner sc1 = new Scanner(System.in); // Ожидание ввода Да или Нет
+            String s = sc1.nextLine();
+            if (s.equals("Да")) {
+                System.out.println("Все вещи собраны, можно выходить на улицу");
+            } else if (s.equals("Нет")) System.out.println("Дособирайте все вещи");
+            System.out.println("Теперь выберите транспорт на котором вы будете добираться до пляжа, Автобус или Автомобиль");
+            Scanner sc2 = new Scanner(System.in);
+            String Avto = sc2.nextLine();
+            if (Avto.equals("Автомобиль")) {
+                System.out.println("Отлично, вы выбрали поездку до пляжа на автомобиле");
+            } else if (Avto.equals("Автобус"))
+                System.out.println("Автобус это конечно хорошо, но на автомобиле было бы лучше");
+            System.out.println("Вы прибыли на пляж, снимите с себя вещи, и разложите одеялку, ну вот и всё, вы на пляже, приятного отдыха");
+        } else System.out.println("На улице прохладно, давайте сходим на пляж в другой раз");
     }
 }

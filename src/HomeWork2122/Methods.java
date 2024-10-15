@@ -36,15 +36,19 @@ public class Methods {
         if (strings == null || strings.length == 0) {
             return new String[]{};
         }
+        String shortest = null;
+        String longest = null;
 
-        String shortest = strings[0];
-        String longest = strings[0];
 
         for (String str : strings) {
-            if (str.length() < shortest.length()) {
+            if (str == null || str.isEmpty()) {
+                continue;
+            }
+
+            if (shortest == null || str.length() < shortest.length()) {
                 shortest = str;
             }
-            if (str.length() > longest.length()) {
+            if (longest == null || str.length() > longest.length()) {
                 longest = str;
             }
         }
@@ -61,7 +65,7 @@ public class Methods {
      */
     public static int[] cornerValuesArray(int... numbers) {
         if (numbers == null || numbers.length == 0) {
-            return new int[]{};
+            return new int[0];
         }
 
         int min = numbers[0];
@@ -106,8 +110,29 @@ public class Methods {
         return new char[]{min1, max1};
     }
 
+    /**
+     * Метод для нахождения факториала
+     *
+     * @param n Целое число
+     * @return Факториал от n
+     */
+    public static int factorial(int n) {
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-// Проверяем первый метод square
+        //Находим факториал с помощью рекурсивного вызова метода
+        {
+            int n = 5;
+            int result = factorial(n);
+            System.out.println("Факториал " + n + " равен " + result);
+        }
+
+        // Проверяем первый метод square
         int result1 = square(2);
         int result2 = square(5);
         int result3 = square(10);
@@ -116,32 +141,61 @@ public class Methods {
         System.out.println("Результат второго значения: " + result2);
         System.out.println("Результат третьего значения: " + result3);
 
-// Проверяем второй метод printFullName
+        // Проверяем второй метод printFullName
         printFullName("Иван", "Иванов");
+
         printFullName("Мария", "Петрова");
+
         printFullName("Алексей", "Сидоров");
 
-// Проверяем третий метод cornerValuesArray со значениями String
-        String[] array1 = {"peace", "war", "table", "difference", "ball"};
-        String[] Result1 = cornerValuesArray(array1);
-        System.out.println("Shortest: " + Result1[0] + " Longest: " + Result1[1]);
+        // Проверяем третий метод cornerValuesArray со значениями String
+        String[] result4 = cornerValuesArray("hello", "world", "abc", "defgh");
+        System.out.println("Shortest: " + result4[0] + ", Longest: " + result4[1]);
 
-        String[] array2 = {"mouse", "computer", "telephone", "apple", "pig"};
-        String[] Result2 = cornerValuesArray(array2);
-        System.out.println("Shortest: " + Result2[0] + " Longest: " + Result2[1]);
+        String[] result5 = cornerValuesArray("hello", "", "world", "  ", "abc", "defgh");
+        System.out.println("Shortest: " + result5[0] + ", Longest: " + result5[1]);
 
-        String[] array3 = {"pen", "gift", "method", "abbreviation", "headphones"};
-        String[] Result3 = cornerValuesArray(array3);
-        System.out.println("Shortest: " + Result3[0] + " Longest: " + Result3[1]);
+        String[] result6 = cornerValuesArray("", "", "");
+        System.out.println("Result: " + result6[0] + ", Result: " + result6[1]);
+
+        String[] result7 = cornerValuesArray(null, "test", "longestString");
+        System.out.println("Shortest: " + result7[0] + ", Longest: " + result7[1]);
+
+        String[] result8 = cornerValuesArray("aaa", "bbb", "ccc");
+        System.out.println("Shortest: " + result8[0] + ", Longest: " + result8[1]);
 
         // Проверяем третий метод cornerValuesArray со значениями int
-        int[] array4 = {6, 5, 7, 4, 8, 2, 1, 2, 0};
-        int[] Result4 = cornerValuesArray(array4);
-        System.out.println("Минимальное число: " + Result4[0] + " Максимальное число: " + Result4[1]);
+        // Тестовый случай1: Пустой массив. Не получилось. Закомментил
+        int[] result9 = cornerValuesArray(new int[]{});
+        System.out.println("Результат:- Пустой массив");
 
-        // Проверяем третий метод с элементами типа Char
-        char[] array5 = {'b', 'c', 'd', 'e', 'f'};
-        char[] Result5 = cornerValuesArray(array5);
-        System.out.println("Самый маленький символ: " + Result5 + " Самый большой символ: " + Result5[1]);
+        // Тест 2: Массив с одним элементом
+        int[] result10 = cornerValuesArray(5);
+        System.out.println("Мин: " + result10[0] + ", Макс: " + result10[1]);
+
+        // Тест 3: Массив с несколькими элементами
+        int[] result11 = cornerValuesArray(1, 2, 3, 4, 5);
+        System.out.println("Мин: " + result11[0] + ", Макс: " + result11[1]);
+
+        // Тест 4: Массив с отрицательными числами
+        int[] result12 = cornerValuesArray(-1, -2, -3, -4, -5);
+        System.out.println("Мин: " + result12[0] + ", Макс: " + result12[1]);
+
+        // Тест 5: Массив с смешанными положительными и отрицательными числами
+        int[] result13 = cornerValuesArray(-1, 2, 3, -4, 5);
+        System.out.println("Мин: " + result13[0] + ", Макс: " + result13[1]);
+
+        //Проверяем третий метод cornerValuesArray со значениями char
+        // Тест 1: Пустой массив
+        char[] result14 = cornerValuesArray(new char[]{});
+        System.out.println("Результат:- Пустой массив");
+
+        // Тест 2: Массив с одним элементом
+        char[] result15 = cornerValuesArray('а');
+        System.out.println("Мин: " + result15[0] + ", Макс: " + result15[1]);
+
+        // Тест 3: Массив с несколькими элементами
+        char[] result16 = cornerValuesArray('а', 'б', 'в', 'г', 'д');
+        System.out.println("Мин: " + result16[0] + ", Макс: " + result16[1]);
     }
 }

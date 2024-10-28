@@ -40,7 +40,17 @@ public class Book {
      * Метод, возвращающий название книги, её автора и год
      * @return Название книги, имя автора и год издания книги
      */
+    @Override
     public String toString() {
-        return "Book: " + title + ", Author: " + author.getFullName() + ", Year: " + year;
+        return "Book: " + title + ", Author: " + author.toString() + ", Year: " + year;
+    }
+
+    public Book() {
+    }
+
+    public Book(String title, Author author, Integer year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
     }
 }

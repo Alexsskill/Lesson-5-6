@@ -6,7 +6,7 @@ public class Author {
     private String firstName;
     private String lastName;
 
-    // Сеттер для имени
+   /* // Сеттер для имени
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -14,7 +14,7 @@ public class Author {
     // Сеттер для фамилии
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
+    }*/
 
     // Геттер для имени
     public String getFirstName() {
@@ -30,7 +30,16 @@ public class Author {
      * Метод для получения полного имени автора
      * @return Возвращает полное имя автора
      */
-    public String getFullName() {
+    @Override
+    public String toString() {
         return firstName + " " + lastName;
+    }
+
+    public Author () {
+    }
+
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 }

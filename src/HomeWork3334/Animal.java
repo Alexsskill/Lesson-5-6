@@ -1,6 +1,6 @@
 package HomeWork3334;
 
-public class Animal {
+abstract class Animal {
     // Поле для имени животного
     private String name;
 
@@ -9,10 +9,11 @@ public class Animal {
         this.name = name;
     }
 
-    // Метод, который выводит звук, который издает животное
-    public void makeSound() {
-        System.out.println("Животное издает звук");
-    }
+    // Абстрактный метод makeSound
+    public abstract void makeSound();
+
+    // Абстрактный метод move
+    public abstract void move();
 
     // Геттер для поля name
     public String getName() {

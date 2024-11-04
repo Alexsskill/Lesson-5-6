@@ -12,9 +12,16 @@ public class Main {
         animals[3] = new Dog("Бобик");
         animals[4] = new Cat("Киса");
 
-        // Перебираем массив и вызываем метод makeSound()
+        // Перебираем массив, проверяем, реализует ли интерфейс Pet и вызываем методы play и beFriendly
         for (Animal animal : animals) {
-            animal.makeSound();
+            if (animal instanceof Pet) { // Проверяем, является ли animal домашним животным
+                ((Pet)animal).play(); // Приводим к типу Pet и вызываем метод play()
+                ((Pet)animal).beFriendly(); // Приводим к типу Pet и вызываем метод beFriendly()
+            }else {
+                System.out.println(animal.getName() + " не является домашним животным.");
+            }
+            animal.makeSound();  // Вызываем звук животного
+            animal.move(); // Вызываем движение животного
         }
     }
 }

@@ -14,13 +14,22 @@ public class Bird extends Animal {
         System.out.println(getName() + " говорит: Чирик-чирик");
     }
 
-    // Геттер для поля canFly
-    public boolean canFly() {
-        return canFly;
-    }
+    @Override
+    public void move() {
+        if (canFly) {
+            System.out.println(getName() + " летает ");
+        } else {
+            System.out.println(getName() + " идет по земле ");
+        }
 
-    // Сеттер для поля canFly
-    public void setCanFly(boolean canFly) {
-        this.canFly = canFly;
+        // Геттер для поля canFly
+        //public boolean canFly () {
+            //return canFly;
+        //}
+
+        // Сеттер для поля canFly
+        //public void setCanFly ( boolean canFly){
+            //this.canFly = canFly;
+        //}
     }
 }

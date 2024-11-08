@@ -1,6 +1,6 @@
 package HomeWork3334;
 
-public class Bird extends Animal {
+final class Bird extends Animal {
     // Поле с инкапсуляцией
     private boolean canFly;
 

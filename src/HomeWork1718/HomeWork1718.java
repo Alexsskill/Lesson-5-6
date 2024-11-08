@@ -53,7 +53,5 @@ public class HomeWork1718 {
                 break;
             }
         }
-
-
     }
 }

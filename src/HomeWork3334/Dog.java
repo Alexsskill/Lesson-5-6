@@ -1,6 +1,6 @@
 package HomeWork3334;
 
-class Dog extends Animal implements Pet {
+final class Dog extends Animal implements Pet {
     public Dog(String name) {
         super(name); // Вызов конструктора родительского класса
     }

@@ -1,5 +1,7 @@
 package Homework3940;
 
+import java.util.Objects;
+
 public class House {
     private final int floors; // Количество этажей
     private final int rooms; // Количество комнат
@@ -16,6 +18,19 @@ public class House {
     public String toString() {
         return "Дом с " + floors + " этажами, " + rooms + " комнатами" +
                 (hasGarage ? ", с гаражом" : ", без гаража");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof House)) return false;
+        House house = (House) o;
+        return floors == house.floors && rooms == house.rooms && hasGarage == house.hasGarage;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(floors, rooms, hasGarage);
     }
 
     // Статический внутренний класс Builder

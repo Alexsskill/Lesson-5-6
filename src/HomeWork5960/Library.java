@@ -40,13 +40,14 @@ public class Library {
     }
 
     /**
-     * Метод фильтрации книг по полю isAvailable
+     * Метод получения списка доступных или недоступных книг
      *
      * @param availability Доступная или недоступная книга
      */
     public List<Book> getBooks(boolean availability) {
         return books.values().stream()
                 .filter(book -> book.isAvailable() == availability)
+                .sorted(Comparator.comparing(Book::getTitle))
                 .collect(Collectors.toList());
     }
 
@@ -55,18 +56,16 @@ public class Library {
      *
      * @return
      */
-    public long countBooks() {
+    public long getBookCount() {
         return books.size();
     }
 
     /**
-     * Метод получения доступных или недоступных книг
-     *
-     * @param availability
+     * Метод получения количества доступных или недоступных книг
      */
-    public long countBooks(boolean availability) {
+    public long countBooks() {
         return books.values().stream()
-                .filter(book -> book.isAvailable() == availability)
+                .filter(Book::isAvailable)
                 .count();
     }
 
@@ -81,6 +80,23 @@ public class Library {
                 .distinct()
                 .sorted()
                 .collect(Collectors.toList());
+    }
+
+    // Получение одной книги по id (за константное время)
+    public Book getBookByIdFast(int id) {
+        return books.get(id);
+    }
+
+    // Разделение книг на доступные и недоступные с помощью partitioningBy
+    public Map<Boolean, List<Book>> partitionBooksByAvailability() {
+        return books.values().stream()
+                .collect(Collectors.partitioningBy(Book::isAvailable));
+    }
+
+    // Группировка книг по авторам с помощью groupingBy
+    public Map<String, List<Book>> groupBooksByAuthor() {
+        return books.values().stream()
+                .collect(Collectors.groupingBy(Book::getAuthor));
     }
 
     public List<Book> getBooks(Comparator<Book> comparator) {

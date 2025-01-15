@@ -28,4 +28,10 @@ public class Book {
     public boolean isAvailable() {
         return isAvailable;
     }
+
+
+    @Override
+    public String toString() {
+        return "Book{" + id + ", " + title + ", " + author + ", " + (isAvailable ? "Available" : "Not Available") + "}";
+    }
 }
